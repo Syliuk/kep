@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <style>
+        
+        div {
+            width: 120px;
+            height: 40px;
+            border: 5px solid black;
+            position: relative;
+            margin: 10px;
+
+        }
+        div::before {
+            width: 8px;
+            height: 15px;
+            background-color: black;
+            border-radius: 2px;
+            top: 50%;
+            content: "";
+            right: -10px;
+            position: absolute;
+            transform: translateY(-50%);
+
+        }
+        .d1::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background-color: red;
+        }
+        .d2::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background-color: orange;
+        }
+        .d3::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: lime;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>  
+    <div class="d2"></div>   
+    <div class="d3"></div>     
+</body>
+</html>

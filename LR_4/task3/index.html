@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+    <style>
+        .title {
+            display:block;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            position: relative;
+        }
+        .title::after,
+        .title::before{
+            content: "";
+            display: inline-block;
+            width: 42%;
+            border-bottom: 5px solid black;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="title">TITLE</h2>    
+</body>
+</html>
