@@ -1,82 +1,63 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Calibri;
+    background-color: lightcyan;
 }
 .page-container {
-	max-width: 980px;
-	margin: 20px auto 0;
-	display: flex;
-	font-family: Calibri;
+    width: 900px;
+    margin: 20px auto;
+    background: white;
+    display: flex;
 }
 .left-side {
-	width: 25%;
-	background-color: #3a5e90;
-	padding-left: 18px;
-	padding-top: 18px;
-	color: white;
-	
+    padding: 20px;
+    width: 30%;
+    background-color: #3a5e90;
+    color: white;
+    float: left;
 }
 .right-side {
-	padding-left: 15px;
-	padding-top: 15px;
-	width: calc(75% - 6px);
+    padding: 20px;
+    width: 70%;
+    float: left;
 }
-.avatar {
-	width: 200px;
-	height: 200px;
-	overflow: hidden;
-	border-radius: 50%;
+.left-side img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 15px;
 }
-.image {
-	display: block;
-	width: 100%;
+.left-side h3, .right-side h2 {
+    margin-bottom: 10px;
 }
-.h3 {
-	padding-top: 15px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid;
+.left-side hr, .right-side hr {
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
 }
-h1 {
-	border-bottom: 2px solid lightgray;
-	padding-bottom: 15px;
+.right-side section {
+    margin-bottom: 20px;
 }
-.p1 {
-	padding-top: 7px;
-}
-.p2 {
-	padding-top: 15px;
-}
-td {
-	padding-bottom: 5px;
-}
-.right {
-	text-align: right;
-}
-.table1 {
-	padding-top: 15px;
-}
-h2 {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border-bottom: 1px solid lightgray;
-}
-.table2 {
-	width: 700px;
-	padding-top: 15px;
-}
-ol {
-	padding-left: 25px;
-	list-style-type: none;
-}
-.btn {
-    text-decoration: none;
-    background-color: #000000;
+a {
+    background-color: #42abf1;
     color: white;
-    padding: 12px 20px;
-    border-radius: 5px; 
-    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 170px;
+    display: block;
     text-align: center;
-    display: inline-block;
-    margin-top: 20px;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+}
+
+h4 {
+    margin: 5px;
 }
