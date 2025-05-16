@@ -65,12 +65,13 @@ h4 {
 .social-icons a {
     margin: 0 10px;
     display: inline-block;
-    width: 48px;
     background-color: white;
+    width: 48px;
 }
 
 .social-icons .icon {
     width: 48px;
     height: 48px;
-
+    fill: #000;
 }
+
