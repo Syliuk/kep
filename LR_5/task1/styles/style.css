@@ -1,0 +1,58 @@
+table{
+    width: 300px;
+    font-family: calibri;
+}
+th {
+    background-color: #5EA9D6;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+th:nth-child(1){
+    padding-left: 20px;
+    padding-right: 70px;
+}
+.company {
+    background-color: #5EA9D6;
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    text-align: left;
+}
+td {
+    background-color: lightblue;
+    text-align: center;
+
+}
+div {
+    font-family: calibri;
+}
+
+.header .cell {
+    background: #5EA9D6;
+    font-weight: bold;
+    color: white;
+    
+}
+.row {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.cell {
+    float: left;
+    width: 9%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid white;
+    background: lightblue;
+}
+.row .cell:first-child {
+    color: white;
+    background: #5EA9D6;
+    width: 13%;
+    text-align: left;
+    padding-left: 20px;
+}

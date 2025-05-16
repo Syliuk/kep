@@ -1,0 +1,67 @@
+body {
+    text-align: center;
+    }
+.container {
+    width: 50%;
+    margin: auto;
+}
+.table-container {
+    float: left;
+    width: 25%;
+    margin: 15px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.tiny{
+    border-bottom: 7px solid darkcyan;
+    border-right: 2px solid darkcyan;
+    border-left: 2px solid darkcyan;
+}
+.small{
+    border-bottom: 7px solid #A66F00;
+    border-right: 2px solid #A66F00;
+    border-left: 2px solid #A66F00;
+}
+.medium{
+    border-bottom: 7px solid #9b2f23;
+    border-right: 2px solid #C0392B;
+    border-left: 2px solid #C0392B;
+}
+th {
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.green { 
+    background-color: #1EA68F;
+    border-bottom: 7px solid darkcyan;
+}
+.orange { 
+    background-color: #FFAA00;
+    border-bottom: 7px solid #A66F00; 
+}
+.red { 
+    background-color: #C0392B;
+    border-bottom: 7px solid #9b2f23;
+}
+td {
+    background-color: #F9F9F9;
+    padding: 15px;
+    color: #707070;
+}
+.signup-btn {
+    padding: 15px;
+    width: 60%;
+    font-size: 16px;
+    color: white;
+    border: none;
+}
+.bth{
+    border-top: 1px dashed black;
+}
+.signup-green { background-color: #1EA68F; }
+.signup-orange { background-color: #FFAA00; }
+.signup-red { background-color: #C0392B; }

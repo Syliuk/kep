@@ -1,0 +1,140 @@
+.calc {
+    width: 240px;
+    border: 2px solid #4a9191;
+    border-radius: 10px;
+    padding: 10px 0;
+    background: #fff;
+}
+.float-calc {
+    float: left;
+}
+.row button {
+    float: left;
+    height: 50px;
+}
+.row{
+    margin: 0 3px;
+}
+.position-calc {
+    float: left;
+    margin-left: 40px;
+    height: 363px;
+}
+.top-bar {
+    background: #4a9191;
+    color: white;
+    padding: 8px;
+    text-align: right;
+    font-size: 14px;
+}
+.display {
+    width: 210px;
+    margin: 10px 5px;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #4a9191;
+    border-radius: 4px;
+}
+.small-screen {
+    width: 80px;
+    height: 30px;
+    background: #4a9191;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: right;
+}
+.buttons button {
+    width: 50px;
+    height: 50px;
+    margin: 4px;
+    border: 2px solid #4a9191;
+    background: white;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.buttons-position {
+    position: relative;
+    height: 240px;
+    margin-top: 40px;
+}
+.buttons-position button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: 2px solid #4a9191;
+    background: white;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.buttons-position button:nth-child(1)  { 
+    top: 5px; 
+    left: 5px; 
+}
+.buttons-position button:nth-child(2)  { 
+    top: 5px; 
+    left: 65px; 
+}
+.buttons-position button:nth-child(3)  { 
+    top: 5px; 
+    left: 125px; 
+}
+.buttons-position button:nth-child(4)  { 
+    top: 5px; 
+    left: 185px; 
+}
+.buttons-position button:nth-child(5)  { 
+    top: 62px; 
+    left: 5px; 
+}
+.buttons-position button:nth-child(6)  { 
+    top: 62px; 
+    left: 65px; 
+}
+.buttons-position button:nth-child(7)  { 
+    top: 62px; 
+    left: 125px; 
+}
+.buttons-position button:nth-child(8)  { 
+    top: 62px; 
+    left: 185px; 
+}
+.buttons-position button:nth-child(9)  { 
+    top: 120px; 
+    left: 5px; 
+}
+.buttons-position button:nth-child(10) { 
+    top: 120px; 
+    left: 65px; 
+}
+.buttons-position button:nth-child(11) { 
+    top: 120px; 
+    left: 125px; 
+}
+.buttons-position button:nth-child(12) { 
+    top: 120px; 
+    left: 185px; 
+}
+.buttons-position button:nth-child(13) { 
+    top: 180px; 
+    left: 5px; 
+}
+.buttons-position button:nth-child(14) { 
+    top: 180px; 
+    left: 65px; 
+}        
+.buttons-position button:nth-child(15) { 
+    top: 180px; 
+    left: 125px; 
+}        
+.buttons-position button:nth-child(16) { 
+    top: 180px; 
+    left: 185px; 
+}
+button:hover {
+    background-color: #C3E6EB;
+}
+button:active {
+    background-color: #3F8E99;
+}

@@ -1,0 +1,262 @@
+/*
+* Background Images - Practice
+* CSS Styles
+*
+*/
+
+
+/* General */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Metal Mania', cursive;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #e91e63;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Header */
+header {
+    background: url(../img/bg-01.jpg) no-repeat center center/cover;
+    height: 400px;
+    text-align: center;
+    position: relative;
+}
+
+#topbar {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px 0;
+    width: 100%;
+    top: 0;
+}
+
+nav ul.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+nav ul.menu li {
+    display: inline-block;
+}
+
+nav ul.menu li a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 20px 20px;
+}
+nav ul.menu li:first-child a {
+    background-color: #e91e63;
+}
+
+header h1 {
+    font-size: 60px;
+    color: #fff;
+    margin-top: 120px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    letter-spacing: 5px;
+}
+
+header .button {
+    margin-top: 20px;
+}
+
+
+/* Tour */
+#tour {
+    padding: 60px 0;
+    background-color: #2b2b2b;
+}
+#tour .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#tour .container h2 {
+    width: 100%;
+    text-align: center;
+}
+
+#tour .tour-card {
+    width: 18%;
+    display: inline-block;
+    margin: 10px;
+    padding: 70px 10px;
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 120px;
+}
+
+
+#tour .tour-card.madrid {
+    background: url('../img/tour/madrid.jpg') no-repeat center center/cover;
+}
+
+#tour .tour-card.turin {
+    background: url('../img/tour/turin.jpg') no-repeat center center/cover;
+}
+
+#tour .tour-card.hamburg {
+    background: url('../img/tour/hamburg.jpg') no-repeat center center/cover;
+}
+
+#tour .tour-card.krakow {
+    background: url('../img/tour/krakow.jpg') no-repeat center center/cover;
+}
+
+#tour .tour-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+#tour .tour-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+#tour .tour-card .tour-place i {
+    margin-right: 5px;
+}
+
+.tour-card .button {
+    background-color: #e91e63;
+    display: block;
+    font-size: 16px;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+
+/* Gallery */
+#gallery {
+    padding: 60px 0;
+    background-color: #2b2b2b;
+}
+
+#gallery h2 {
+    margin-bottom: 40px;
+}
+
+#gallery .photo {
+    width: 30%;
+    display: inline-block;
+    margin: 1%;
+    box-sizing: border-box;
+}
+
+#gallery .photo img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+
+/* Subscribe */
+#subscribe {
+    background: url('../img/bg-02.jpg') no-repeat center center/cover;
+    padding: 60px 0;
+    text-align: center;
+}
+
+#subscribe .pitch h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+#subscribe .pitch p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+#subscribe .subscribe-form {
+    display: inline-block;
+}
+
+#subscribe .subscribe-form input[type="email"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+#subscribe .subscribe-form button {
+    padding: 0 20px;
+    height: 40px;
+    background-color: #e91e63;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+footer .social {
+    margin-bottom: 20px;
+}
+footer .copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
