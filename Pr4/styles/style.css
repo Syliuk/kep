@@ -1,0 +1,42 @@
+div{
+	display: block;
+	text-align: center;
+	font-size: 40px;
+}
+#firstway {
+	width: 300px;
+	height: 300px;
+	background: blue;
+	border-radius: 150px;
+}
+#firstway::before{
+	width: 200px;
+	height: 200px;
+	background: yellow;
+	border-radius: 100px;
+	top: 50%;
+	content: "";
+	position: absolute;
+	left: 55px;
+	transform: translateY(-210%);
+}
+#firstway::after{
+	width: 100px;
+	height: 100px;
+	background: white;
+	border-radius: 50px;
+	top: 50%;
+	content: "UA";
+	align-content: center;
+	position: absolute;
+	left: 105px;
+	transform: translateY(-370%);
+}
+#secondway {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(white 25%, yellow 25% 50%, blue 50% 100%);
+      border-radius: 50%;
+      content: "UA";
+      align-content: center;
+  }
