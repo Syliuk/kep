@@ -1,0 +1,180 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+	font-size: 14px;
+}
+header{
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 40px;
+}
+span{
+	color: #E43434;
+}
+.logo{
+	align-items: center;
+	gap: 10px;
+	font-weight: bold;
+	display: flex;
+}
+.L{
+	width: 40px;
+	height: 40px;
+	background: #E43434;
+	color: white;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+ul{
+
+	list-style: none;
+	font-weight: bold;
+	font-family: calibri;
+}
+li{
+	font-weight: bold;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.hero{
+	background: url(../images/img1.jpg) no-repeat center top;
+	display: flex;
+	background-size: cover;
+	background-position: center -120px;
+}
+.hero-section{
+	color: white;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+.hero-section h1{
+	padding-top: 100px;
+	font-size: 70px;
+	padding-left: 70px;
+	font-family: calibri;
+}
+.hero-section p{
+	font-size: 40px;
+	padding-left: 70px;
+}
+.button{
+	width: 150px;
+	height: 40px;
+	background: white;
+	color: #E43434;
+	text-align: center;
+	align-content: center;
+	border-radius: 15%/50%;
+	margin-top: 20px;
+	margin-left: 70px;
+	display: block;
+	position: absolute;
+}
+.btn{
+	color: #E43434;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: calibri;
+}
+.images{
+	padding-top: 50px;
+	width: 100%;
+	display: inline-flex;
+}
+.images img{
+	display: inline-flex;
+	width: 100%;
+}
+/* Ховаємо меню на мобільних */
+.nav {
+  display: none;                 /* сховане за замовчуванням */
+  flex-direction: column;        /* вертикально */
+  gap: 15px;
+  padding: 20px;
+  position: absolute;
+  background: white;
+  top: 60px;
+  left: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+/* коли відкрите */
+.nav.open {
+  display: flex;
+}
+
+/* --- Планшети і більше --- */
+@media (min-width: 768px) {
+  .nav {
+    display: flex !important;     /* завжди показуємо */
+    position: static;             /* звичайний потік */
+    flex-direction: row;          /* горизонтально */
+    align-items: center;
+    gap: 30px;
+    border: none;
+    padding: 0;
+    background: none;
+  }
+  ul{
+  	display: flex;
+  }
+}
+@media (min-width: 1025px) {
+	.images{
+	padding-top: 100px;
+	width: 100%;
+	display: inline-flex;
+}
+.images img{
+	display: inline-flex;
+	width: 100%;
+}
+.hero{
+	background-position: center -220px;
+}
+.hero-section h1{
+	padding-top: 220px;
+	font-size: 130px;
+	padding-left: 120px;
+	font-family: calibri;
+}
+.hero-section p{
+	font-size: 90px;
+	padding-left: 120px;
+}
+.button{
+	width: 300px;
+	height: 80px;
+	background: white;
+	color: #E43434;
+	text-align: center;
+	align-content: center;
+	border-radius: 15%/50%;
+	margin-top: 20px;
+	margin-left: 120px;
+	display: block;
+	position: absolute;
+}
+.btn{
+	color: #E43434;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: calibri;
+}
+}
