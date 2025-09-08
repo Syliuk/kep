@@ -95,10 +95,9 @@ li{
 	display: inline-flex;
 	width: 100%;
 }
-/* Ховаємо меню на мобільних */
 .nav {
-  display: none;                 /* сховане за замовчуванням */
-  flex-direction: column;        /* вертикально */
+  display: none;              
+  flex-direction: column;        
   gap: 15px;
   padding: 20px;
   position: absolute;
@@ -109,18 +108,15 @@ li{
   border-radius: 8px;
   z-index: 1000;
 }
-
-/* коли відкрите */
 .nav.open {
   display: flex;
 }
 
-/* --- Планшети і більше --- */
 @media screen and (width>=768px) {
   .nav {
-    display: flex !important;     /* завжди показуємо */
-    position: static;             /* звичайний потік */
-    flex-direction: row;          /* горизонтально */
+    display: flex !important;     
+    position: static;            
+    flex-direction: row;        
     align-items: center;
     gap: 30px;
     border: none;
@@ -149,45 +145,46 @@ li{
   	font-size: 20px;
   }
 }
-@media screen and (width >= 1024px) {
-.hero-section{
-	background-position: center -150px;
-}
-.hero h1{
-	font-size: 70px;
-}
-.hero p{
-	font-size: 30px;
-}
-.button{
-	width: 150px;
-	height: 45px;
-	margin-top: 20px;
-}
-.btn{
-	font-size: 25px;
-}
+@media screen and (width >= 1200px) {
+	.hero-section{
+		background-position: center -140px;
+	}
+	.hero h1{
+		font-size: 100px;
+		padding-top: 130px;
+	}
+	.hero p{
+		font-size: 40px;
+	}
+	.button{
+		width: 150px;
+		height: 45px;
+		margin-top: 20px;
+	}
+	.btn{
+		font-size: 25px;
+	}
 }
 @media screen and (width >= 1920px) {
-.hero-section{
-	background-position: center -230px;
-}
-.hero h1{
-	font-size: 140px;
-	padding-top: 180px;
-	padding-left: 150px;
-}
-.hero p{
-	font-size: 60px;
-	padding-left: 150px;
-}
-.button{
-	width: 250px;
-	height: 65px;
-	margin-top: 30px;
-	margin-left: 150px;
-}
-.btn{
-	font-size: 35px;
-}
+	.hero-section{
+		background-position: center -230px;
+	}
+	.hero h1{
+		font-size: 140px;
+		padding-top: 180px;
+		padding-left: 150px;
+	}
+	.hero p{
+		font-size: 60px;
+		padding-left: 150px;
+	}
+	.button{
+		width: 250px;
+		height: 65px;
+		margin-top: 30px;
+		margin-left: 150px;
+	}
+	.btn{
+		font-size: 35px;
+	}
 }
