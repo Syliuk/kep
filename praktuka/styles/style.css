@@ -395,7 +395,6 @@ input:focus{
 
 svg{
 	fill: #949494;
-	border: 1px solid black;
 	margin-right: 1.5vw;
 	aspect-ratio: 2/1;
 	width: 4vw;
@@ -415,3 +414,4 @@ svg{
   	display: flex;
   }
 }
+
