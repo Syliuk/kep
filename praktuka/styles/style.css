@@ -368,12 +368,25 @@ input:focus{
 	display: block;
 }
 
+.footer p{
+	font-size: 14px;
+	font-family: calibri;
+	font-weight: bold;
+	color: #949494;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
 .svgs{
 	display: flex;
+	justify-content: center;
+	margin-top: 10px;
 }
 
 svg{
-	fill: black;
+	fill: #949494;
+	border: 1px solid black;
+	margin-right: 5px;
 }
 
 @media screen and (width>=768px) {
