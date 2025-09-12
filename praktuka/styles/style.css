@@ -201,6 +201,7 @@ li{
 	width: 100%;
 	height: 100px;
 	display: flex;
+	overflow: hidden;
 }
 
 .photo1{
@@ -464,4 +465,5 @@ svg{
 		font-size: 35px;
 	}
 }
+
 
