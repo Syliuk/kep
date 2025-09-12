@@ -385,7 +385,6 @@ input:focus{
 
 svg{
 	fill: #949494;
-	border: 1px solid black;
 	margin-right: 5px;
 }
 
@@ -465,3 +464,4 @@ svg{
 		font-size: 35px;
 	}
 }
+
