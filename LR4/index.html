@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Інформація про книгу</title>
+  <title>Лабораторна №4</title>
 </head>
 <body>
-  <h1>Інформація про книгу</h1>
-
   <script>
     let book = {
       title: "Harry Potter and the Sorcerer's Stone",
@@ -16,10 +14,138 @@
       isRead: true,
       bookInfo() {
         console.log(`Назва: ${this.title}, Автор: ${this.author}, Рік видання: ${this.year}, Прочитана: ${this.isRead ? "Так" : "Ні"}`);
+      },
+      markAsRead() {
+        this.isRead = true;
+        console.log(`Книга "${this.title}" позначена як прочитана.`);
       }
     };
+
     book.isRead = !book.isRead;
     book.bookInfo();
+    book.markAsRead();
+    book.bookInfo();
+
+    let library = [
+      { title: "Harry Potter and the Sorcerer's Stone", author: "J.K. Rowling", year: 1997, isRead: true, markAsRead() { this.isRead = true; } },
+      { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, isRead: false, markAsRead() { this.isRead = true; } },
+      { title: "1984", author: "George Orwell", year: 1949, isRead: true, markAsRead() { this.isRead = true; } }
+    ];
+
+    function displayLibrary() {
+      library.forEach(book => {
+        console.log(`Назва: ${book.title}, Автор: ${book.author}, Рік видання: ${book.year}, Прочитана: ${book.isRead ? "Так" : "Ні"}`);
+      });
+    }
+
+    function calculateAverageYear() {
+      let totalYears = library.reduce((sum, book) => sum + book.year, 0);
+      let average = totalYears / library.length;
+      return Math.round(average);
+    }
+
+    library.push({
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      isRead: false,
+      markAsRead() { this.isRead = true; }
+    });
+
+    console.log("=== Поточна бібліотека ===");
+    displayLibrary();
+
+    library.sort((a, b) => a.year - b.year);
+    console.log("=== Відсортовані книги за роком видання ===");
+    console.log(library);
+
+    let unreadBooks = library.filter(book => !book.isRead);
+    console.log("=== Непрочитані книги ===");
+    console.log(unreadBooks);
+
+    let tolkienBook = library.find(book => book.author === "J.R.R. Tolkien");
+    console.log("=== Книга Толкіна ===");
+    console.log(tolkienBook);
+
+    function addBookToLibrary() {
+      let title = prompt("Введіть назву книги: ");
+      let author = prompt("Введіть автора книги:");
+      let year = +prompt("Введіть рік видання книги:");
+      let isRead = confirm("Чи прочитана книга?");
+      library.push({
+        title,
+        author,
+        year,
+        isRead,
+        markAsRead() { this.isRead = true; }
+      });
+      displayLibrary();
+      console.log(`Середній рік видання: ${calculateAverageYear()}`);
+    }
+
+    addBookToLibrary();
+
+    //індивідуальне завдання
+
+    let meeting = {
+      topic: "Обговорення проєкту",
+      date: "2025-10-25",
+      time: "10:00",
+      place: "Кабінет №3",
+      isHeld: false,
+      meetingInfo() {
+        console.log(`Тема: ${this.topic}, Дата: ${this.date}, Час: ${this.time}, Місце: ${this.place}, Проведено: ${this.isHeld ? "Так" : "Ні"}`);
+      }
+    };
+
+    meeting.meetingInfo();
+
+    let schedule = [
+      { topic: "Обговорення проєкту", date: "2025-10-25", time: "10:00", place: "Кабінет №3", isHeld: true },
+      { topic: "Планування бюджету", date: "2025-10-28", time: "12:30", place: "Конференц-зал", isHeld: false },
+      { topic: "Презентація продукту", date: "2025-11-02", time: "09:00", place: "Офіс A1", isHeld: true }
+    ];
+
+    function displaySchedule() {
+      schedule.forEach(meeting => {
+        console.log(`Тема: ${meeting.topic}, Дата: ${meeting.date}, Час: ${meeting.time}, Місце: ${meeting.place}, Проведено: ${meeting.isHeld ? "Так" : "Ні"}`);
+      });
+    }
+
+    schedule.push({
+      topic: "Командна зустріч",
+      date: "2025-11-10",
+      time: "15:00",
+      place: "Zoom",
+      isHeld: false
+    });
+
+    console.log("=== Поточний розклад зустрічей ===");
+    displaySchedule();
+
+    schedule.sort((a, b) => new Date(a.date) - new Date(b.date));
+    console.log("=== Відсортовані зустрічі за датою ===");
+    console.log(schedule);
+
+    let upcomingMeetings = schedule.filter(meeting => !meeting.isHeld);
+    console.log("=== Майбутні (непроведені) зустрічі ===");
+    console.log(upcomingMeetings);
+
+    let officeMeetings = schedule.find(meeting => meeting.place.includes("Офіс"));
+    console.log("=== Зустріч в офісі ===");
+    console.log(officeMeetings);
+
+    function addMeetingToSchedule() {
+      let topic = prompt("Введіть тему зустрічі:");
+      let date = prompt("Введіть дату (рік-місяць-день):");
+      let time = prompt("Введіть час (год:хв):");
+      let place = prompt("Введіть місце проведення:");
+      let isHeld = confirm("Чи проведена зустріч?");
+      schedule.push({ topic, date, time, place, isHeld });
+      displaySchedule();
+    }
+
+    addMeetingToSchedule();
   </script>
 </body>
 </html>
