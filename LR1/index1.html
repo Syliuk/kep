@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Список імені</title>
+</head>
+<body>
+  <ul id="nameList"></ul>
+
+  <script>
+    const name = "Богдан";
+    const list = document.getElementById("nameList");
+
+    for (let letter of name) {
+      const li = document.createElement("li");
+      li.textContent = letter;
+      li.addEventListener("mouseover", () => alert(letter));
+      list.appendChild(li);
+    }
+  </script>
+</body>
+</html>

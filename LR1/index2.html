@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Введення імен</title>
+</head>
+<body>
+  <h2>Список введених користувачів:</h2>
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById("output");
+    while (true) {
+      const fullName = prompt("Введіть прізвище та ім'я (або натисніть 'Відміна' для завершення):");
+      if (fullName === null) break;
+      const p = document.createElement("p");
+      p.textContent = fullName;
+      output.appendChild(p);
+    }
+  </script>
+</body>
+</html>

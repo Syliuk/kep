@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Показати блоки</title>
+  <style>
+    #letters {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .letter-block {
+      width: 60px;
+      height: 60px;
+      background-color: lightblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleBtn">Показати блоки</button>
+  <div id="letters"></div>
+
+  <script>
+    const surname = ["С", "и", "л", "ю", "к"];
+    const container = document.getElementById("letters");
+    const button = document.getElementById("toggleBtn");
+    let shown = false;
+
+    button.addEventListener("click", () => {
+      if (!shown) {
+        container.innerHTML = "";
+        surname.forEach(letter => {
+          const div = document.createElement("div");
+          div.className = "letter-block";
+          div.textContent = letter;
+          div.addEventListener("mouseenter", () => {
+            alert(`Це літера ${letter}`);
+          });
+          container.appendChild(div);
+        });
+        button.textContent = "Очистити блоки";
+        shown = true;
+      } else {
+        container.innerHTML = "";
+        button.textContent = "Показати блоки";
+        shown = false;
+      }
+    });
+  </script>
+</body>
+</html>
