@@ -3,12 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Практична 1</title>
+  <title>Практична робота №1</title>
 </head>
 <body>
   <script>
-    
+    // завдання 5
+    let orders = [
+      {
+        orderId: 1,
+        customer: { name: "Іван Петренко", email: "ivan@example.com" },
+        items: ["Ноутбук", "Мишка"],
+        total: 1500
+      },
+      {
+        orderId: 2,
+        customer: { name: "Олена Коваль", email: "olena@example.com" },
+        items: ["Телефон"],
+        total: 900
+      },
+      {
+        orderId: 3,
+        customer: { name: "Іван Петренко", email: "ivan@example.com" },
+        items: ["Монітор", "Клавіатура"],
+        total: 700
+      },
+      {
+        orderId: 4,
+        customer: { name: "Марія Іваненко", email: "maria@example.com" },
+        items: ["Планшет"],
+        total: 1200
+      },
+      {
+        orderId: 5,
+        customer: { name: "Олена Коваль", email: "olena@example.com" },
+        items: ["Навушники", "Зарядний пристрій"],
+        total: 300
+      }
+    ];
+
+    function getTotalSpentByCustomer(orders, customerName) {
+      let customerOrders = orders.filter(order => order.customer.name === customerName);
+      let totalSpent = customerOrders.reduce((sum, order) => sum + order.total, 0);
+      return totalSpent;
+    }
+
+    let name = prompt("Введіть ім'я клієнта для підрахунку витрат:");
+    let spent = getTotalSpentByCustomer(orders, name);
+
+    if (spent > 0) {
+      console.log(`Клієнт "${name}" витратив загалом ${spent} грн.`);
+    } else {
+      console.log(`Клієнт "${name}" не знайдений або не має замовлень.`);
+    }
+
+    // завдання 6
+
+    let products = [
+      { productId: 1, name: "Ноутбук", price: 1500 },
+      { productId: 2, name: "Смартфон", price: 900 },
+      { productId: 3, name: "Планшет", price: 1200 },
+      { productId: 4, name: "Навушники", price: 300 }
+    ];
+
+    let purchases = [
+      { purchaseId: 1, productId: 1, quantity: 3 },
+      { purchaseId: 2, productId: 2, quantity: 5 },
+      { purchaseId: 3, productId: 3, quantity: 2 },
+      { purchaseId: 4, productId: 4, quantity: 8 },
+      { purchaseId: 5, productId: 2, quantity: 1 }
+    ];
+
+    function getTotalSales(products, purchases) {
+      return purchases.reduce((result, purchase) => {
+        let product = products.find(p => p.productId === purchase.productId);
+        if (product) {
+          let income = product.price * purchase.quantity;
+          if (result[product.name]) {
+            result[product.name] += income;
+          } else {
+            result[product.name] = income;
+          }
+        }
+        return result;
+      }, {});
+    }
+
+    let totalSales = getTotalSales(products, purchases);
+    console.log("Загальний дохід по кожному товару:");
+    console.log(totalSales);
   </script>
 </body>
 </html>
+
 
