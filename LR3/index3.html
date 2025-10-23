@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 3</title>
+</head>
+<body>
+  <script>
+    function* chatBot() {
+      const name = yield "Hi! What is your name?";
+      const mood = yield `Nice to meet you, ${name}! How are you?`;
+      yield `I'm glad to hear you're ${mood}! Goodbye!`;
+    }
+
+    const bot = chatBot();
+
+    let step = bot.next();
+    let answer;
+
+    while (!step.done) {
+      const question = step.value;
+      answer = prompt(question);
+      step = bot.next(answer);
+    }
+
+    alert(step.value);
+  </script>
+</body>
+</html>

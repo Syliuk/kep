@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 4</title>
+</head>
+<body>
+  <button id="hello">Say</button>
+
+  <script>
+    const userName = prompt("Введіть ваше ім’я:");
+
+    const user = {
+      name: userName,
+      say() {
+        alert(`Hello, ${this.name}`);
+      }
+    };
+
+    const button = document.getElementById("hello");
+
+    button.onclick = user.say.bind(user);
+  </script>
+</body>
+</html>

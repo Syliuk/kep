@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 2</title>
+</head>
+<body>
+  <script>
+    function* passwordGenerator() {
+      let password = "";
+      while (true) {
+        const char = yield;
+        if (char === "done") {
+          return password;
+        }
+        password += char;
+      }
+    }
+
+    const generator = passwordGenerator();
+    generator.next();
+
+    while (true) {
+      const input = prompt("Введіть символ для пароля (або 'done' для завершення):");
+      const result = generator.next(input);
+
+      if (result.done) {
+        alert("Ваш пароль: " + result.value);
+        break;
+      }
+    }
+  </script>
+</body>
+</html>

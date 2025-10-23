@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 1</title>
+</head>
+<body>
+  <button id="next">Next number</button>
+  <div id="out"></div>
+
+  <script>
+    function* randomGenerator(min, max) {
+      while (true) {
+        yield Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    }
+
+    const min = +prompt("Введіть мінімальне число:");
+    const max = +prompt("Введіть максимальне число:");
+
+    const generator = randomGenerator(min, max);
+
+    const button = document.getElementById("next");
+    const output = document.getElementById("out");
+
+    button.addEventListener("click", () => {
+      const nextNumber = generator.next().value;
+      output.textContent = "Випадкове число: " + nextNumber;
+    });
+  </script>
+</body>
+</html>
