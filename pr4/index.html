@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя карта</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+        input {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Моя карта з Google Maps</h2>
+    <div id="map"></div>
+
+    <div id="controls">
+        <input type="number" id="destLat" placeholder="Широта">
+        <input type="number" id="destLng" placeholder="Довгота">
+        <button onclick="goToDestination()">Перейти до пункту</button>
+    </div>
+
+    <script>
+        let map;
+        let userMarker;
+
+        function initMap() {
+            navigator.geolocation.getCurrentPosition(position => {
+                const userCoords = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 14,
+                    center: userCoords
+                });
+
+                userMarker = new google.maps.Marker({
+                    position: userCoords,
+                    map: map,
+                    title: "Ваше місцезнаходження"
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `Ви тут: ${userCoords.lat.toFixed(5)}, ${userCoords.lng.toFixed(5)}`
+                });
+
+                userMarker.addListener("click", () => infoWindow.open(map, userMarker));
+
+                watchUserPosition();
+            });
+        }
+
+        function watchUserPosition() {
+            navigator.geolocation.watchPosition(position => {
+                const coords = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                const time = new Date().toLocaleTimeString();
+
+                const newMarker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: `Ваша позиція: ${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `Координати: ${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}<br>Час: ${time}`
+                });
+
+                newMarker.addListener("click", () => infoWindow.open(map, newMarker));
+            });
+        }
+
+        function goToDestination() {
+            const lat = parseFloat(document.getElementById("destLat").value);
+            const lng = parseFloat(document.getElementById("destLng").value);
+
+            if (isNaN(lat) || isNaN(lng)) {
+                alert("Введіть правильні координати!");
+                return;
+            }
+
+            const dest = { lat: lat, lng: lng };
+            map.panTo(dest);
+
+            new google.maps.Marker({
+                position: dest,
+                map: map,
+                title: "Пункт призначення"
+            });
+        }
+    </script>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5ym7VvClORR9HdWs2a69HG2l_-Hx2pdI&callback=initMap">
+    </script>
+</body>
+</html>
