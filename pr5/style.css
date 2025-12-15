@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 50px auto;
+}
+h2 {
+    text-align: center;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+li.completed {
+    color: gray;
+    text-decoration: line-through;
+}
+li span.task-text {
+    flex: 1;
+    margin-left: 10px;
+    cursor: pointer;
+}
+li span.date {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+li button.delete {
+    margin-left: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: red;
+    font-size: 16px;
+}
+button.sortBtn {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
