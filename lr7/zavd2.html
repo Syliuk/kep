@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 5</title>
+</head>
+<body>
+<div id="result"></div>
+<a href="index.html">На головну</a>
+<script>
+function createRandomPromise(delay) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(Math.floor(Math.random() * 10) + 1);
+        }, delay);
+    });
+}
+
+const promises = [
+    createRandomPromise(1000),
+    createRandomPromise(2000),
+    createRandomPromise(3000)
+];
+
+Promise.all(promises).then(values => {
+    const sum = values.reduce((a,b) => a + b, 0);
+    document.getElementById('result').textContent = "Сума: " + sum;
+});
+</script>
+</body>
+</html>
