@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Форматування дати</title>
+</head>
+<body>
+    <br>
+    <a href="index.html">На головну</a>
+    <script>
+        function formatDate(date) {
+            const now = new Date();
+            const diff = now - date;
+            if (diff < 1000) return "прямо зараз";
+            else if (diff < 60000) return Math.floor(diff / 1000) + " сек. назад";
+            else if (diff < 3600000) return Math.floor(diff / 60000) + " хв. назад";
+            else {
+                const d = date.getDate().toString().padStart(2, '0');
+                const m = (date.getMonth() + 1).toString().padStart(2, '0');
+                const y = date.getFullYear().toString().slice(-2);
+                const h = date.getHours().toString().padStart(2, '0');
+                const min = date.getMinutes().toString().padStart(2, '0');
+                return `${d}.${m}.${y} ${h}:${min}`;
+            }
+        }
+
+        alert(formatDate(new Date(new Date() - 500))); 
+        alert(formatDate(new Date(new Date() - 5000)));
+        alert(formatDate(new Date(new Date() - 600000)));
+        alert(formatDate(new Date(2021, 11, 31, 10, 0)));
+    </script>
+</body>
+</html>
