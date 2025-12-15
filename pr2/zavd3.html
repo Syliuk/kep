@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ефект друкарської машинки</title>
+</head>
+<body>
+    <h2>Ефект друкарської машинки</h2>
+
+    <input type="text" id="userText" placeholder="Введіть фразу">
+    <button onclick="startTyping()">Друкувати</button>
+
+    <div id="output" style="margin-top: 20px; font-size: 18px;"></div>
+    <br>
+    <a href="index.html">На головну</a>
+    <script>
+        function startTyping() {
+            const output = document.getElementById('output');
+            output.textContent = '';
+
+            const textInput = document.getElementById('userText').value || "Привіт! Це ефект друкарської машинки.";
+            let index = 0;
+            const interval = setInterval(() => {
+                output.textContent += textInput[index];
+                index++;
+
+                if (index === textInput.length) {
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>

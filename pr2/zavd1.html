@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Годинник</title>
+</head>
+<body>
+
+  <input type="text" id="chas" size="10">
+  <br>
+  <a href="index.html">На головну</a>
+  <script>
+    function addZero(value) {
+      return value < 10 ? "0" + value : value;
+    }
+
+    function time() {
+      let time = new Date();
+
+      let hours = addZero(time.getHours());
+      let minutes = addZero(time.getMinutes());
+      let seconds = addZero(time.getSeconds());
+
+      chas.value = hours + ":" + minutes + ":" + seconds;
+
+      setTimeout(time, 1000);
+    }
+
+    time();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ставка на бокс</title>
+</head>
+<body>
+    <h2>Ставка на результат</h2>
+
+    <input type="number" id="betAmount" placeholder="Введіть суму ставки">
+    <button onclick="playGame()">Спробувати удачу</button>
+
+    <div id="result" style="margin-top: 20px; font-size: 18px;"></div>
+    <br>
+    <a href="index.html">На головну</a>
+    <script>
+        function playGame() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = "Очікуйте результат...";
+
+            const bet = parseFloat(document.getElementById('betAmount').value);
+
+            if (isNaN(bet) || bet <= 0) {
+                resultDiv.textContent = "Будь ласка, введіть правильну суму ставки.";
+                return;
+            }
+            const randomNum = Math.floor(Math.random() * 11) - 5;
+            setTimeout(() => {
+                if (randomNum > 0) {
+                    const winnings = bet * randomNum;
+                    resultDiv.textContent = `Вітаємо! Ви виграли ${winnings} гривень (випало число ${randomNum}).`;
+                } else {
+                    resultDiv.textContent = `На жаль, ви не вгадали. Випало число ${randomNum}.`;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
