@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблиця множення (радіокнопки)</title>
+</head>
+<body>
+
+  <p id="score">
+    Загальний рахунок 0% (0 правильних відповідей з 0)
+  </p>
+
+  <button id="nextTask">наступне завдання</button>
+
+  <p id="task">---</p>
+
+  <form id="options"></form>
+
+  <p id="result"></p>
+
+  <br>
+  <a href="index.html">Назад</a>
+  
+  <script>
+    let a, b;
+    let correct = 0;
+    let total = 0;
+    let answered = false;
+
+    function updateScore() {
+      const percent = total === 0 ? 0 : Math.round((correct / total) * 100);
+      document.getElementById("score").textContent =
+        `Загальний рахунок ${percent}% (${correct} правильних відповідей з ${total})`;
+    }
+
+    function generateTask() {
+      a = Math.floor(Math.random() * 10) + 1;
+      b = Math.floor(Math.random() * 10) + 1;
+      answered = false;
+
+      document.getElementById("task").textContent = `${a} * ${b} = ?`;
+      document.getElementById("result").textContent = "";
+
+      generateOptions(a * b);
+    }
+
+    function generateOptions(correctAnswer) {
+      const answers = new Set();
+      answers.add(correctAnswer);
+
+      while (answers.size < 4) {
+        answers.add(Math.floor(Math.random() * 81) + 1);
+      }
+
+      const shuffled = Array.from(answers).sort(() => Math.random() - 0.5);
+      const form = document.getElementById("options");
+      form.innerHTML = "";
+
+      shuffled.forEach(value => {
+        const label = document.createElement("label");
+        const radio = document.createElement("input");
+
+        radio.type = "radio";
+        radio.name = "answer";
+        radio.value = value;
+
+        radio.addEventListener("change", checkAnswer);
+
+        label.appendChild(radio);
+        label.append(" " + value);
+        form.appendChild(label);
+        form.appendChild(document.createElement("br"));
+      });
+    }
+
+    function checkAnswer(event) {
+      if (answered) return;
+      answered = true;
+      total++;
+
+      const selected = Number(event.target.value);
+
+      if (selected === a * b) {
+        correct++;
+        document.getElementById("result").textContent = "Правильно";
+      } else {
+        document.getElementById("result").textContent =
+          `Помилка, правильна відповідь ${a * b}`;
+      }
+
+      disableOptions();
+      updateScore();
+    }
+
+    function disableOptions() {
+      document
+        .querySelectorAll('input[name="answer"]')
+        .forEach(radio => radio.disabled = true);
+    }
+
+    document.getElementById("nextTask").addEventListener("click", generateTask);
+  </script>
+
+</body>
+</html>

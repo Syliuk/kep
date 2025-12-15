@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Captcha</title>
+</head>
+<body>
+
+  <div id="captcha"></div>
+  <br>
+  <a href="index.html">На головну</a>
+  <script>
+    function initCaptcha(containerId, digitsCount) {
+  const container = document.getElementById(containerId);
+  let captchaValue = '';
+
+  const title = document.createElement('div');
+  title.textContent = 'Введіть число';
+
+  const captchaBox = document.createElement('div');
+  captchaBox.style.display = 'flex';
+  captchaBox.style.margin = '10px 0';
+
+  const input = document.createElement('input');
+  input.type = 'text';
+
+  const message = document.createElement('div');
+  message.style.marginTop = '5px';
+
+  container.appendChild(title);
+  container.appendChild(captchaBox);
+  container.appendChild(input);
+  container.appendChild(message);
+
+  const digitPatterns = {
+    0: ['111','101','101','101','111'],
+    1: ['010','110','010','010','111'],
+    2: ['111','001','111','100','111'],
+    3: ['111','001','111','001','111'],
+    4: ['101','101','111','001','001'],
+    5: ['111','100','111','001','111'],
+    6: ['111','100','111','101','111'],
+    7: ['111','001','010','010','010'],
+    8: ['111','101','111','101','111'],
+    9: ['111','101','111','001','111']
+  };
+
+  function drawDigit(digit) {
+    const digitBox = document.createElement('div');
+    digitBox.style.marginRight = '6px';
+
+    digitPatterns[digit].forEach(row => {
+      const rowDiv = document.createElement('div');
+      rowDiv.style.height = '6px';
+
+      [...row].forEach(pixel => {
+        const span = document.createElement('span');
+        span.style.display = 'inline-block';
+        span.style.width = '6px';
+        span.style.height = '6px';
+        span.style.margin = '1px';
+        span.style.backgroundColor = pixel === '1' ? 'red' : 'transparent';
+        rowDiv.appendChild(span);
+      });
+
+      digitBox.appendChild(rowDiv);
+    });
+
+    return digitBox;
+  }
+
+  function generateCaptcha() {
+    captchaValue = '';
+    captchaBox.innerHTML = '';
+    message.textContent = '';
+    input.value = '';
+
+    for (let i = 0; i < digitsCount; i++) {
+      const digit = Math.floor(Math.random() * 10);
+      captchaValue += digit;
+      captchaBox.appendChild(drawDigit(digit));
+    }
+  }
+
+  input.addEventListener('input', () => {
+    if (input.value.length === captchaValue.length) {
+      if (input.value === captchaValue) {
+        message.textContent = 'Правильно';
+        message.style.color = 'green';
+      } else {
+        message.textContent = 'Помилка';
+        message.style.color = 'red';
+      }
+    } else {
+      message.textContent = '';
+    }
+  });
+
+  generateCaptcha();
+}
+
+initCaptcha('captcha', 2);
+
+
+  </script>
+</body>
+</html>

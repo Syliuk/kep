@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Фоторотатор</title>
+</head>
+<body>
+
+  <div id="rotator"></div>
+
+  <br><br><br><br>
+  <a href="index.html">На головну</a>
+  <script>
+    let imagesArray = [
+  {
+    path: 'images/001.jfif',
+    title: 'клавіатура 1',
+    description: 'звичайна клавіатура'
+  },
+  {
+    path: 'images/002.jfif',
+    title: 'клавіатура 2',
+    description: 'клавіатура з підсвіткою'
+  },
+  {
+    path: 'images/003.jfif',
+    title: 'клавіатура 3',
+    description: 'велика клавіатура'
+  }
+];
+
+function initPhotoRotator(containerId, images) {
+  let index = 0;
+  const container = document.getElementById(containerId);
+
+  const counter = document.createElement('div');
+  counter.style.textAlign = 'center';
+  counter.style.marginBottom = '10px';
+
+  const row = document.createElement('div');
+  row.style.display = 'flex';
+  row.style.alignItems = 'center';
+  row.style.justifyContent = 'center';
+
+  const prev = document.createElement('a');
+  prev.href = '#';
+  prev.textContent = 'Назад';
+  prev.style.width = '80px';
+  prev.style.textAlign = 'center';
+
+  const imgBox = document.createElement('div');
+  imgBox.style.width = '600px';
+  imgBox.style.height = '400px';
+  imgBox.style.display = 'flex';
+  imgBox.style.alignItems = 'center';
+  imgBox.style.justifyContent = 'center';
+  imgBox.style.overflow = 'hidden';
+
+  const img = document.createElement('img');
+  img.style.maxWidth = '100%';
+  img.style.maxHeight = '100%';
+
+  imgBox.appendChild(img);
+
+  const next = document.createElement('a');
+  next.href = '#';
+  next.textContent = 'Вперед';
+  next.style.width = '80px';
+  next.style.textAlign = 'center';
+
+  const title = document.createElement('div');
+  title.style.textAlign = 'center';
+  title.style.marginTop = '10px';
+  title.style.fontWeight = 'bold';
+
+  const desc = document.createElement('div');
+  desc.style.textAlign = 'center';
+
+  row.appendChild(prev);
+  row.appendChild(imgBox);
+  row.appendChild(next);
+
+  container.appendChild(counter);
+  container.appendChild(row);
+  container.appendChild(title);
+  container.appendChild(desc);
+
+  function updateView() {
+    const item = images[index];
+
+    counter.textContent = `Фотографія ${index + 1} з ${images.length}`;
+    img.src = item.path;
+    title.textContent = item.title;
+    desc.textContent = item.description;
+
+    prev.style.visibility = index === 0 ? 'hidden' : 'visible';
+    next.style.visibility = index === images.length - 1 ? 'hidden' : 'visible';
+  }
+
+  prev.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (index > 0) {
+      index--;
+      updateView();
+    }
+  });
+
+  next.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (index < images.length - 1) {
+      index++;
+      updateView();
+    }
+  });
+
+  updateView();
+}
+
+initPhotoRotator('rotator', imagesArray);
+
+  </script>
+</body>
+</html>

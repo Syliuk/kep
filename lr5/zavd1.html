@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Конвертер температур</title>
+</head>
+<body>
+
+  <h2>Конвертер температур</h2>
+
+  <label>
+    Температура за Фаренгейтом:
+    <input type="number" id="fahrenheit">
+  </label>
+  <br><br>
+
+  <label>
+    Температура за Цельсієм:
+    <input type="number" id="celsius">
+  </label>
+  <br>
+  <a href="index.html">Назад</a>
+  <script>
+    const fahrenheitInput = document.getElementById("fahrenheit");
+    const celsiusInput = document.getElementById("celsius");
+
+    function fahrenheitToCelsius() {
+      const f = parseFloat(fahrenheitInput.value);
+      if (!isNaN(f)) {
+        celsiusInput.value = (5 / 9 * (f - 32)).toFixed(2);
+      }
+    }
+
+    function celsiusToFahrenheit() {
+      const c = parseFloat(celsiusInput.value);
+      if (!isNaN(c)) {
+        fahrenheitInput.value = (c * 9 / 5 + 32).toFixed(2);
+      }
+    }
+
+    fahrenheitInput.addEventListener("input", fahrenheitToCelsius);
+    celsiusInput.addEventListener("input", celsiusToFahrenheit);
+  </script>
+</body>
+</html>
